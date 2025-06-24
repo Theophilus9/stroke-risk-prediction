@@ -18,18 +18,16 @@ def home():
 @app.route('/predict', methods=['POST'])
 def predict():
     try:
-        # Get JSON data from the request
         data = request.get_json()
+        df = pd.DataFrame([data])
 
-        # Convert to DataFrame with correct column order
-        input_df = pd.DataFrame([data], columns=feature_columns)
+        # Encode the categorical columns like during training
+        df_encoded = pd.get_dummies(df)
+        df_encoded = df_encoded.reindex(columns=model.feature_names_in_, fill_value=0)
 
-        # Predict stroke (0 or 1)
-        prediction = model.predict(input_df)
-
+        prediction = model.predict(df_encoded)
         return jsonify({'prediction': int(prediction[0])})
     except Exception as e:
         return jsonify({'error': str(e)})
-
 if __name__ == '__main__':
     app.run(debug=True)
