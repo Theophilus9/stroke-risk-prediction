@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stroke Prediction</title>
+</head>
+<body>
+    <h1>Fill in your details</h1>
+    <form method="POST">
+        <label>Gender:</label>
+        <select name="gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select><br>
+
+        <label>Age:</label>
+        <input type="number" name="age" step="1" required><br>
+
+        <label>Hypertension:</label>
+        <select name="hypertension" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+
+        <label>Heart Disease:</label>
+        <select name="heart_disease" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+
+        <label>Ever Married:</label>
+        <select name="ever_married" required>
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select><br>
+
+        <label>Work Type:</label>
+        <select name="work_type" required>
+            <option value="Private">Private</option>
+            <option value="Self-employed">Self-employed</option>
+            <option value="Govt_job">Govt_job</option>
+            <option value="children">children</option>
+            <option value="Never_worked">Never_worked</option>
+        </select><br>
+
+        <label>Residence Type:</label>
+        <select name="Residence_type" required>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+        </select><br>
+
+        <label>Avg Glucose Level:</label>
+        <input type="number" name="avg_glucose_level" step="0.1" required><br>
+
+        <label>BMI:</label>
+        <input type="number" name="bmi" step="0.1" required><br>
+
+        <label>Smoking Status:</label>
+        <select name="smoking_status" required>
+            <option value="never smoked">Never smoked</option>
+            <option value="formerly smoked">Formerly smoked</option>
+            <option value="smokes">Smokes</option>
+            <option value="Unknown">Unknown</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+        <h2>{{ result }}</h2>
+    {% endif %}
+</body>
+</html>
