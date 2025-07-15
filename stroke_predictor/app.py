@@ -2,17 +2,19 @@ from flask import Flask, render_template, request
 import joblib
 import pandas as pd
 import numpy as np
+import os
 
 app = Flask(__name__)
 
-# Load your model
-model = joblib.load(r"D:\final\stroke_predictor\stroke_model.pkl")
+base_path = os.path.dirname(os.path.abspath(__file__))
+# Load your model and columns using absolute paths
+model = joblib.load(os.path.join(base_path, "stroke_model.pkl"))
+original_cols = joblib.load(os.path.join(base_path, "columns.pkl"))
 
 @app.route('/')
 def home():
     return render_template('home.html')
 
-original_cols = joblib.load(r'D:\final\stroke_predictor\columns.pkl')
 
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
