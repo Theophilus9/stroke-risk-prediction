@@ -13,12 +13,8 @@ pip install pandas numpy scikit-learn matplotlib django
 
 REM Install additional ML/AI packages
 pip install seaborn
-pip install jupyterlab
-pip install notebook
 pip install pandas
 pip install joblib
-pip install plotly
-pip install shap lime
 pip install flask
 pip install numpy
 pip install scikit-learn
