@@ -1,23 +1,13 @@
 @echo off
-REM Create virtual environment
-python -m venv ml_env
 
-REM Activate the virtual environment
-call ml_env\Scripts\activate.bat
-
-REM Upgrade pip
+REM Upgrade pip globally
 python -m pip install --upgrade pip
 
-REM Install core packages
-pip install pandas numpy scikit-learn matplotlib django
+REM Install core packages globally
+pip install pandas numpy scikit-learn matplotlib
 
-REM Install additional ML/AI packages
-pip install seaborn
-pip install pandas
-pip install joblib
-pip install flask
-pip install numpy
-pip install scikit-learn
+REM Install additional ML/AI packages globally
+pip install seaborn joblib flask
 
 echo All packages installed successfully.
 pause
